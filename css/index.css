@@ -1,0 +1,210 @@
+html {
+  box-sizing: border-box;
+}
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+body, h1, h2, p, ul {
+  margin: 0;
+}
+ul {
+  padding-left: 0;
+  list-style-type: none;
+}
+
+body {
+  min-block-size: 100vh;
+  min-block-size: 100svh;
+  display: grid;
+  grid-template-rows: 1fr auto;
+  place-items: center;
+  font-family: var(--ff-rale), sans-serif;
+  background: url('../assets/image/bg-mobile.png') no-repeat center/100vw var(--very-dark-blue);
+  color: var(--pale-blue);
+}
+@media (width >= 656px) {
+  body {
+    background-image: url('../assets/image/bg-desktop.png');
+    background-position: bottom left;
+    
+  }
+}
+
+:root {
+  --pale-blue: hsl(243, 100%, 93%);
+  --grayish-blue: hsl(229, 7%, 55%);
+  --dark-blue: hsl(228, 56%, 26%);
+  --very-dark-blue: hsl(229, 57%, 11%);
+  --white: hsl(0, 0%, 100%);
+  --white-50: hsl(0, 0%, 59%);
+  --gradient-1: hsl(6, 100%, 80%);
+  --gradient-2: hsl(335, 100%, 65%);
+  --ff-rale: 'Raleway';
+  --radius: 10px;
+}
+
+.container {
+  margin-top: -2.2rem;
+  inline-size: clamp(326px, 86.9vw, 920px);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 1rem;
+}
+
+
+.box {
+  flex-grow: 1;
+  background-color: var(--dark-blue);
+  border-radius: var(--radius);
+}
+.box-1 {
+  max-inline-size: 350px;
+  padding: 2.5rem 2.6rem;
+  border-top-right-radius: 100px;
+}
+.box-2 {
+  padding: 2rem 2rem 3.25rem;
+  text-align: center;
+  position: relative;
+}
+
+.icon-wrap {
+  margin-top: 1.7rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.icon__item {
+  inline-size: 3rem;
+  block-size: 3rem;
+  display: grid;
+  place-items: center;
+  background-color: var(--very-dark-blue);
+  border-radius: var(--radius);
+}
+
+.box__description {
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: .1px;
+}
+
+.bar-wrap {
+  margin-top: 1rem;
+  display: grid;
+  align-items: center;
+  block-size: 1.25rem;
+  background-color: var(--very-dark-blue);
+  border-radius: var(--radius);
+}
+.bar {
+  margin-left: 3px;
+  inline-size: 81.5%;
+  inline-size: 73.7%;
+  block-size: 70%;
+  background: linear-gradient(to left, var(--gradient-2), var(--gradient-1));
+  border-radius: var(--radius);
+  position: relative;
+}
+.bar::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 2px;
+  inline-size: 10px;
+  block-size: 10px;
+  background-color: white;
+  border-radius: 50%;
+  transform: translateY(-50%);
+}
+
+.capacity {
+  margin-top: .5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.leftover-storage {
+  padding-block: .78rem;
+  padding: .71rem 0 .82rem;
+  inline-size: 179px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: .7rem;
+  font-weight: 700;
+  background-color: var(--white);
+  border-radius: var(--radius);
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 50%);
+}
+.leftover__number {
+  font-size: 40px;
+  color: var(--very-dark-blue);
+}
+.leftover__text {
+  margin-top: .4rem;
+  font-size: 12px;
+  color: var(--white-50);
+  letter-spacing: 1px;
+}
+
+@media (height < 442px) {
+  .attribution {
+    margin-top: 3rem;
+  }
+}
+.attribution {
+  margin-top: -4rem;
+  padding-block: 1.5rem;
+  font-size: .85rem;
+  letter-spacing: .5px;
+}
+.attribution__cta {
+  margin-inline: .15rem;
+  font-weight: 600;
+  text-underline-offset: .15rem;
+  color: inherit;
+  transition: color .3s ease;
+}
+
+
+@media (width >= 690px) {
+  .container {
+    margin-top: -1.3rem;
+    gap: 1.85rem;
+  }
+  .box-2 {
+    text-align: left;
+    padding: 2.5rem;
+  }
+  .leftover-storage {
+    left: unset;
+    bottom: unset;
+    top: -50%;
+    right: 7.4%;
+    transform: translateY(42%);
+  }
+  .leftover-storage::after {
+    content: '';
+    position: absolute;
+    top: 86%;
+    right: 0;
+    border-top: 2rem solid var(--white);
+    border-bottom: 2rem solid transparent;
+    border-left: 2rem solid transparent;
+  }
+}
+
+@media(hover:hover) {
+  .attribution__cta:hover {
+    color: var(--gradient-1);
+  }
+}
